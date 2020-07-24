@@ -21,14 +21,18 @@ SeamlessTravelFunctions.h declares Blueprint-callable static USeamlessTravelFunc
 GameMode has been reparented to ASTGameMode and exposes TravelToNextLevel event. This event toggles a simple loadscreen to mask level transition, and does a simple material color change into the ThirdPersonCharacter to test actor persistence between levels. It also implements overrides for declared events in STGameMode.h
 
 ThirdPersonGameMode::GetSeamlessTravelActorList function just adds player character as a persistant actor for seamless travel, besides whatever parent implementation does.
+
 ThirdPersonGameMode::PostSeamlessTravel function repositions player character to a valid PlayerStart actor location and manually sets it as a view target before fading out the loadscreen widget.
+
 ThirdPersonGameMode::ToggleLoadscreen function is a wrapper function to call STPlayerController::ToggleLoadscreen Blueprint function.
 
 
 #Docs
+
 Seamless travel documentation: https://docs.unrealengine.com/en-US/Gameplay/Networking/Travelling/index.html
 
 #Some notes
+
 • According to the docs, GameMode actor will persist only in server. On client, it won't. Adding GameMode as a persistant actor will cause a crash (will appreciate any insight on this :) )
 • PlayerController actors will persist automatically, as stated in docs. Player actors won't.
 
