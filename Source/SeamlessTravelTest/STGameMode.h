@@ -20,19 +20,6 @@ protected:
 
 protected:
 
-	UFUNCTION(BlueprintCallable, Category = "ST Test")
-		void AddPersistantActor(AActor* actor);
-
-	UFUNCTION(BlueprintCallable, Category = "ST Test")
-		void InitSeamlessTravel();
-
-	UFUNCTION(BlueprintCallable, Category = "ST Test")
-		void SeamlessTravel(const FString& URL);
-
-	UFUNCTION(BlueprintCallable, Category = "ST Test")
-		void AssignViewTargetToCameraManager(APlayerCameraManager* cameraManager, AActor* viewTargetActor);
-
-
 #pragma region OVERRIDES
 	UFUNCTION(BlueprintImplementableEvent)
 		void GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& ActorList) override;
@@ -40,7 +27,4 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent)
 		void PostSeamlessTravel() override;
 #pragma endregion
-
-
-
 };
