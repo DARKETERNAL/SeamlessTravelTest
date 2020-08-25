@@ -16,15 +16,16 @@ class SEAMLESSTRAVELTEST_API ASTGameMode : public AGameModeBase
 
 protected:
 
-	UWorld* worldRef;
-
-protected:
-
 #pragma region OVERRIDES
 	UFUNCTION(BlueprintImplementableEvent)
 		void GetSeamlessTravelActorList(bool bToTransition, TArray<AActor*>& ActorList) override;
 
 	UFUNCTION(BlueprintImplementableEvent)
 		void PostSeamlessTravel() override;
+
+	UFUNCTION(BlueprintCallable)
+		void SetSeamlessTravelPausePoint(bool pause);
+
+	void HandleSeamlessTravelPlayer(AController*& newController) override;
 #pragma endregion
 };
